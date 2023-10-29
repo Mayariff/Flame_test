@@ -5,16 +5,14 @@ import { BtnMenu, TableRow } from "../index"
 
 type propsType = {
   data: PersonTransformedType
-  isError: boolean
-  isFetching: boolean
+  disableCondition: boolean
+  disableCondition2: boolean
 }
-const RowWithFavorite = ({ data, isError, isFetching }: propsType) => {
+const RowWithFavorite = ({ data, disableCondition,disableCondition2 }: propsType) => {
   const [isFavoriteItem, setIsFavoriteItem] = useState<boolean>(
     cls.hasItem(data.id),
   )
-  /*useEffect(() => {
-    setIsFavoriteItem(cls.hasItem(data.id))
-  }, [data])*/
+ 
 
   const onClickAdd = useCallback(() => {
     cls.addFavorite(data.id, data)
@@ -35,8 +33,8 @@ const RowWithFavorite = ({ data, isError, isFetching }: propsType) => {
           btn2Name={"Del"}
           handelClickBtn={onClickAdd}
           handelClickBtn2={onClickDel}
-          disableCondition={isError || isFetching || isFavoriteItem}
-          disableCondition2={isError || isFetching || !isFavoriteItem}
+          disableCondition={disableCondition || isFavoriteItem}
+          disableCondition2={disableCondition2 || !isFavoriteItem}
         />
       }
     />

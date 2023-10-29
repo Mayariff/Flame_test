@@ -1,14 +1,19 @@
-import { ChangeEventHandler, useState } from "react"
+import { ChangeEventHandler, memo, useState } from "react"
 import { useDebounce } from "../../healpers"
 import SearchList from "./SearchList"
 
-const SearchInput = () => {
-  const [inputValue, setInputValue] = useState<string>("")
-  const [inFocus, setInFocus] = useState<boolean>(false)
-  const debouncedValue = useDebounce(inputValue, 500)
+type propsType = {
+  isFetching: boolean
+  value: string
+  changeInput: (value: string) => void
+}
+const SearchInput = memo(({ isFetching, value, changeInput }: propsType) => {
 
-  const changeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setInputValue(e.currentTarget.value)
+  const [inFocus, setInFocus] = useState<boolean>(false)
+  const debouncedValue = useDebounce(value, 500)
+
+  const changeInputHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
+    changeInput(e.currentTarget.value)
   }
 
   const onBlurHandler = () => setInFocus(false)
@@ -19,13 +24,14 @@ const SearchInput = () => {
   return (
     <div onBlur={onBlurHandler}>
       <input
-        value={inputValue}
-        onChange={changeInput}
+        value={value}
+        onChange={changeInputHandler}
         onFocus={onFocusHandler}
+        disabled={isFetching}
       />
       {isOpen && <SearchList isOpen={isOpen} value={debouncedValue} />}
     </div>
   )
-}
+})
 
 export default SearchInput

@@ -8,11 +8,14 @@ type propsType = {
   disableCondition: boolean
   disableCondition2: boolean
 }
-const RowWithFavorite = ({ data, disableCondition,disableCondition2 }: propsType) => {
+const RowWithFavorite = ({
+  data,
+  disableCondition,
+  disableCondition2,
+}: propsType) => {
   const [isFavoriteItem, setIsFavoriteItem] = useState<boolean>(
     cls.hasItem(data.id),
   )
- 
 
   const onClickAdd = useCallback(() => {
     cls.addFavorite(data.id, data)
@@ -29,8 +32,8 @@ const RowWithFavorite = ({ data, disableCondition,disableCondition2 }: propsType
       linkedEl={"name"}
       child={
         <BtnMenu
-          btnName={"Add"}
-          btn2Name={"Del"}
+          btnName={"Favorite"}
+          btn2Name={"Favorite"}
           handelClickBtn={onClickAdd}
           handelClickBtn2={onClickDel}
           disableCondition={disableCondition || isFavoriteItem}

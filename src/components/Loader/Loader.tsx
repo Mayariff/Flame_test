@@ -1,7 +1,12 @@
-import React from "react"
+import s from "./Loader.module.css"
+import { LinearProgress } from "@mui/material"
 
 const Loader = () => {
-  return <div>Loading...</div>
+  return (
+    <div className={s.container}>
+      <LinearProgress />
+    </div>
+  )
 }
 
 export default Loader

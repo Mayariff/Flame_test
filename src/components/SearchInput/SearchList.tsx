@@ -2,6 +2,7 @@ import { PATH } from "../../app/routing"
 import { useSearchPeopleQuery } from "../../features/People"
 import { PersonTransformedType } from "../../commonTypes"
 import { Link } from "react-router-dom"
+import { List, ListItem, ListItemText, Paper } from "@mui/material"
 
 type PropsType = {
   value: string
@@ -12,18 +13,33 @@ const SearchList = ({ value }: PropsType) => {
   if (isError) return <div>{error}</div>
   if (isLoading) return <div>Loading...</div>
   return (
-    <>
+    <Paper
+      variant="outlined"
+      sx={{
+        p: "2px 4px",
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        position: "absolute",
+        zIndex: 5,
+      }}
+    >
       {data?.results.length === 0 && (
-        <div>Nothing found, please enter another query</div>
+        <span>Nothing found, please enter another query</span>
       )}
-      <ol style={{ border: "1px solid black" }}>
+
+      <List>
         {data?.results.map((r: PersonTransformedType) => (
-          <li key={r.id}>
-            <Link to={PATH.peoples + `/${r.id}`}>{r.name}</Link>
-          </li>
+          <ListItem key={r.id}>
+            <ListItemText>
+              <Link to={PATH.peoples + `/${r.id}`} variant="body2">
+                {r.name}
+              </Link>
+            </ListItemText>
+          </ListItem>
         ))}
-      </ol>
-    </>
+      </List>
+    </Paper>
   )
 }
 

@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d5afd6c-9ae8-4e03-a914-606d34daf0ed" name="Changes" comment="">
+    <list default="true" id="0d5afd6c-9ae8-4e03-a914-606d34daf0ed" name="Changes" comment="Add MUI">
+      <change afterPath="$PROJECT_DIR$/src/app/App.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/EmptyList/EmptyList.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Error/Error.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/Loader.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pagination/Pagination.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Favorites/Favorites.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/People/People.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Person/Person.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/routing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BtnMenu/BtnMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BtnMenu/BtnMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EmptyList/EmptyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmptyList/EmptyList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Error/Error.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Error/Error.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loader/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader/Loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pagination/Pagination.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RowWithFavorite/RowWithFavorite.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RowWithFavorite/RowWithFavorite.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SearchInput/SearchInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchInput/SearchInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchInput/SearchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchInput/SearchList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableHeaderRow/TableHeaderRow.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableHeaderRow/TableHeaderRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TableHeaderRow/TableHeaderRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableRow/TableRow.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableRow/TableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TableRow/TableRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Favorites/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Favorites/Favorites.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/People/People.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/People/People.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Person/Person.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Person/Person.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +102,16 @@
       <updated>1698402389238</updated>
       <workItem from="1698402390896" duration="19000" />
       <workItem from="1698402464152" duration="43991000" />
-      <workItem from="1698553293953" duration="13469000" />
+      <workItem from="1698553293953" duration="26088000" />
     </task>
+    <task id="LOCAL-00001" summary="Add blocking Btns">
+      <created>1698567247856</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698567247856</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,5 +127,22 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add blocking Btns" />
+    <MESSAGE value="Add MUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MUI" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/EmptyList/EmptyList.tsx</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -6,9 +6,9 @@ import { Person } from "../features/Person"
 import { Favorites } from "../features/Favorites"
 
 export enum PATH {
-  peoples = "/peoples",
+  peoples = "/people",
   favorites = "/favorites",
-  person = "/peoples/:id",
+  person = "/people/:id",
 }
 
 export const router = createBrowserRouter([

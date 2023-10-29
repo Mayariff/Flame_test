@@ -1,6 +1,6 @@
-import s from "./TableHeaderRow.module.css"
 import { PersonTransformedType } from "../../features/People"
 import { memo } from "react"
+import { TableCell, TableHead, TableRow } from "@mui/material"
 
 type propsType = {
   columNameArr?: keyof PersonTransformedType
@@ -12,16 +12,16 @@ const TableHeaderRow = memo(({ columNameArr, btnColName }: propsType) => {
   const col = columNameArr ? columNameArr : defaultColumns
 
   return (
-    <thead>
-      <tr className={s.row}>
+    <TableHead>
+      <TableRow sx={{ backgroundColor: "#1976d2" }}>
         {col.map((el) => (
-          <th key={el} className={s.cell}>
+          <TableCell key={el} sx={{ color: "#fff" }}>
             {el}
-          </th>
+          </TableCell>
         ))}
-        <th className={s.cell}>{btnColName}</th>
-      </tr>
-    </thead>
+        <TableCell sx={{ color: "#fff" }}>{btnColName}</TableCell>
+      </TableRow>
+    </TableHead>
   )
 })
 

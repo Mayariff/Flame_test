@@ -1,4 +1,8 @@
 import React, { memo } from "react"
+import s from "./Pagination.module.css"
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
+import { Button } from "@mui/material"
 
 type propsType = {
   disablePrev?: boolean
@@ -13,19 +17,23 @@ const Pagination = memo(
     const onClickPrev = () => handelClick(curPage - 1)
 
     return (
-      <div>
-        <button
+      <div className={s.container}>
+        <Button
           onClick={onClickPrev}
+          size={"small"}
           disabled={disablePrev ? disablePrev : false}
+          startIcon={<ArrowBackIosIcon />}
         >
           Prev
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={onClickNext}
+          size={"small"}
           disabled={disableNext ? disableNext : false}
+          endIcon={<ArrowForwardIosIcon />}
         >
           Next
-        </button>
+        </Button>
       </div>
     )
   },

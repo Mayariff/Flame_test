@@ -1,16 +1,20 @@
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useGetPersonQuery } from "./index"
-import {
-  BtnMenu,
-  Error,
-  Loader,
-  TableHeaderRow,
-  TableRow,
-} from "../../components"
+import { BtnMenu, Error, Loader, TableHeaderRow, TableRow } from "../../components";
 import { cls } from "../Favorites"
 import { createObj } from "../../healpers"
 import { PATH } from "../../app/routing"
-import { useCallback, useEffect, useMemo, useState } from "react"
+import React, { useCallback, useEffect, useMemo, useState } from "react"
+import {
+  Button,
+  Paper,
+  Table,
+  TableBody,
+  TableContainer
+} from "@mui/material";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp"
+import s from "./Person.module.css"
+
 
 const Person = () => {
   const { id } = useParams()
@@ -37,31 +41,41 @@ const Person = () => {
     [isSuccess, data],
   )
   return (
-    <>
-      <Link to={PATH.peoples}> Back to Table</Link>
-      {isFavoriteAtFirst && (
-        <BtnMenu
-          btnName={"Add in Favorite"}
-          btn2Name={"Del from Favorite"}
-          handelClickBtn={addInFavorite}
-          handelClickBtn2={delFromFavorite}
-          disableCondition={isError || isFetching || isFavoriteItem}
-          disableCondition2={isError || isFetching || !isFavoriteItem}
-        />
-      )}
+    <div className={s.container}>
+      <div className={s.btnContainer}>
+        <Button href={PATH.peoples} startIcon={<ExitToAppIcon />}>
+          Back to Table
+        </Button>
+
+        {isFavoriteAtFirst && (
+          <BtnMenu
+            btn2Name={"Favorite"}
+            btnName={"Favorite"}
+            handelClickBtn2={addInFavorite}
+            handelClickBtn={delFromFavorite}
+            disableCondition2={isError || isFetching || isFavoriteItem}
+            disableCondition={isError || isFetching || !isFavoriteItem}
+          />
+        )}
+      </div>
       {isFetching && <Loader />}
       {isError && <Error errorText={error} />}
       {isSuccess && (
-        <table>
-          <TableHeaderRow columNameArr={columNames} />
-          <tbody>
-            {rowsContent.map((r) => (
-              <TableRow key={r[0]} row={r} />
-            ))}
-          </tbody>
-        </table>
+        <TableContainer
+          component={Paper}
+          sx={{ minWidth: 400, width: `80%`, margin: "4px auto" }}
+        >
+          <Table sx={{ width: `100%` }} aria-label="customized table">
+            <TableHeaderRow columNameArr={columNames} />
+            <TableBody>
+              {rowsContent.map((r) => (
+                <TableRow key={r[0]} row={r} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
-    </>
+    </div>
   )
 }
 

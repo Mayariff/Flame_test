@@ -1,11 +1,12 @@
 import { memo } from "react"
+import s  from "./Error.module.css";
 
-type Tprops = {
+type propsType = {
   errorText: string
 }
-const Error = memo(({ errorText }: Tprops) => {
+const Error = memo(({ errorText }: propsType) => {
   return (
-    <div>
+    <div className={s.container}>
       <h1>{errorText || "Some error"}</h1>
     </div>
   )

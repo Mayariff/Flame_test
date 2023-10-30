@@ -1,10 +1,9 @@
-import { PersonTransformedType } from "../../features/People"
 import { memo } from "react"
 import { TableCell, TableHead, TableRow } from "@mui/material"
 
 type propsType = {
-  columNameArr?: keyof PersonTransformedType
-  btnColName: string
+  columNameArr?: string[]
+  btnColName?: string
 }
 export const defaultColumns = ["name", "height", "mass", "hair_color"]
 
@@ -19,7 +18,7 @@ const TableHeaderRow = memo(({ columNameArr, btnColName }: propsType) => {
             {el}
           </TableCell>
         ))}
-        <TableCell sx={{ color: "#fff" }}>{btnColName}</TableCell>
+        {btnColName && <TableCell sx={{ color: "#fff" }}>{btnColName}</TableCell>}
       </TableRow>
     </TableHead>
   )

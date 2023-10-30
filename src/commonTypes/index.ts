@@ -2,12 +2,12 @@ export type errorType = {
   data: { detail: string }
   status: number
 }
-export type PersonTransformedType ={
+export type PersonTransformedType = {
   name: string
   height: string
   mass: string
   hair_color: string
-  id:string
+  id: string
 }
 export type personType = {
   name: string

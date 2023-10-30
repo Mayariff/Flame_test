@@ -1,8 +1,8 @@
 import { PATH } from "../../app/routing"
 import { useSearchPeopleQuery } from "../../features/People"
 import { PersonTransformedType } from "../../commonTypes"
-import { Link } from "react-router-dom"
-import { List, ListItem, ListItemText, Paper } from "@mui/material"
+import { List, ListItem, ListItemText, Paper, Link } from "@mui/material"
+import { Error } from "../index"
 
 type PropsType = {
   value: string
@@ -10,8 +10,8 @@ type PropsType = {
 const SearchList = ({ value }: PropsType) => {
   const { data, error, isError, isLoading } = useSearchPeopleQuery(value)
 
-  if (isError) return <div>{error}</div>
-  if (isLoading) return <div>Loading...</div>
+  if (isError) return <Error errorText={error as string} />
+
   return (
     <Paper
       variant="outlined"
@@ -24,6 +24,7 @@ const SearchList = ({ value }: PropsType) => {
         zIndex: 5,
       }}
     >
+      {isLoading && <span>Loading...</span>}
       {data?.results.length === 0 && (
         <span>Nothing found, please enter another query</span>
       )}
@@ -32,7 +33,7 @@ const SearchList = ({ value }: PropsType) => {
         {data?.results.map((r: PersonTransformedType) => (
           <ListItem key={r.id}>
             <ListItemText>
-              <Link to={PATH.peoples + `/${r.id}`} variant="body2">
+              <Link href={PATH.peoples + `/${r.id}`} variant="body2">
                 {r.name}
               </Link>
             </ListItemText>

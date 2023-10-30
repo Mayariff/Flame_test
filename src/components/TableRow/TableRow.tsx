@@ -1,20 +1,21 @@
-import { PersonTransformedType } from "../../features/People"
 import React, { memo } from "react"
 import Link from "@mui/material/Link"
 import { PATH } from "../../app/routing"
 import { TableCell, TableRow as RowTable } from "@mui/material"
+import { PersonTransformedType } from "../../commonTypes"
 
 type propsType = {
-  row: PersonTransformedType
-  child: React.ReactNode
-  id: string
+  row: PersonTransformedType | [string,string]
+  child?: React.ReactNode
+  id?: string
   linkedEl?: string
 }
 const TableRow = memo(({ row, id, child, linkedEl }: propsType) => {
-  const fields = Object.values(row).filter((r) => r !== id)
 
-  const linkField = linkedEl && Object.keys(row).find((el) => el === linkedEl)
-  const linkValue = linkField && row[linkField]
+  const fields: string[] =   Object.values(row).filter((r) => r !== id)
+  const linkField = linkedEl && Object.keys(row).find((el) => el === linkedEl)  as string|undefined
+  //@ts-ignore
+  const linkValue:string|undefined = linkField  as string && (row[linkField] )
 
   return (
     <RowTable>
@@ -23,7 +24,7 @@ const TableRow = memo(({ row, id, child, linkedEl }: propsType) => {
         return (
           <TableCell key={index} size={"small"}>
             {linkValue === value ? (
-              <Link to={PATH.peoples + `/${id}`}>{value}</Link>
+              <Link href={PATH.peoples + `/${id}`}>{value}</Link>
             ) : (
               value
             )}

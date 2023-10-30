@@ -34,10 +34,10 @@ const RowWithFavorite = ({
         <BtnMenu
           btnName={"Favorite"}
           btn2Name={"Favorite"}
-          handelClickBtn={onClickAdd}
-          handelClickBtn2={onClickDel}
-          disableCondition={disableCondition || isFavoriteItem}
-          disableCondition2={disableCondition2 || !isFavoriteItem}
+          handelClickBtn2={onClickAdd}
+          handelClickBtn={onClickDel}
+          disableCondition={disableCondition || !isFavoriteItem}
+          disableCondition2={disableCondition2 || isFavoriteItem}
         />
       }
     />

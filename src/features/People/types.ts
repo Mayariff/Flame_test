@@ -1,4 +1,4 @@
-import { PersonTransformedType } from "../../commonTypes";
+import { PersonTransformedType } from "../../commonTypes"
 
 export type responseType<T> = {
   count: number
@@ -7,7 +7,4 @@ export type responseType<T> = {
   results: T
 }
 
-export type peopleResType = responseType<PersonTransformedType>
-
-
-
+export type peopleResType = responseType<PersonTransformedType[]>

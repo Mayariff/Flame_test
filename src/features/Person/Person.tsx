@@ -18,28 +18,28 @@ import s from "./Person.module.css"
 
 const Person = () => {
   const { id } = useParams()
-  const { data, error, isSuccess, isError, isFetching } = useGetPersonQuery(id)
-  const [isFavoriteItem, setIsFavoriteItem] = useState<boolean>(cls.hasItem(id))
+  const { data, error, isSuccess, isError, isFetching } = useGetPersonQuery(id!)
+  const [isFavoriteItem, setIsFavoriteItem] = useState<boolean>(cls.hasItem(id!)!)
   let [isFavoriteAtFirst, setIsFavoriteAtFirst] = useState<boolean>(false)
 
   useEffect(() => {
-    setIsFavoriteAtFirst(!cls.hasItem(id))
+    setIsFavoriteAtFirst(!cls.hasItem(id!))
   }, [])
 
   const addInFavorite = useCallback(() => {
-    cls.addFavorite(id, createObj(data))
-    setIsFavoriteItem((prev) => cls.hasItem(id))
+    cls.addFavorite(id!, createObj(data))
+    setIsFavoriteItem((prev) => cls.hasItem(id!))
   }, [data])
   const delFromFavorite = useCallback(() => {
-    cls.deleteFavorite(id)
+    cls.deleteFavorite(id!)
     setIsFavoriteItem(false)
   }, [])
 
   const columNames = useMemo(() => ["Attribute", "Value"], [])
   const rowsContent = useMemo(
-    () => isSuccess && Object.entries(data),
+    () => isSuccess && Object.entries(data) ,
     [isSuccess, data],
-  )
+  ) as [string,string][]
   return (
     <div className={s.container}>
       <div className={s.btnContainer}>
@@ -59,7 +59,7 @@ const Person = () => {
         )}
       </div>
       {isFetching && <Loader />}
-      {isError && <Error errorText={error} />}
+      {isError && <Error errorText={error as string} />}
       {isSuccess && (
         <TableContainer
           component={Paper}
@@ -69,7 +69,7 @@ const Person = () => {
             <TableHeaderRow columNameArr={columNames} />
             <TableBody>
               {rowsContent.map((r) => (
-                <TableRow key={r[0]} row={r} />
+                <TableRow key={r[0]} row={r}  />
               ))}
             </TableBody>
           </Table>

@@ -44,7 +44,7 @@ const SearchInput = memo(({ isFetching, value, changeInput }: propsType) => {
           disabled={isFetching}
         />
       </Paper>
-      {isOpen && <SearchList isOpen={isOpen} value={debouncedValue} />}
+      {isOpen && <SearchList value={debouncedValue} />}
     </Box>
   )
 })
